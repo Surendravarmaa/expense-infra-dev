@@ -19,12 +19,22 @@ pipeline {
         }
         stage('Plan') {
             steps {
-                sh 'echo This is Test stage'
+                sh """
+                cd 01-vpc
+                terraform plan
+                """
             }
         }
         stage('Deploy') {
+            input {
+                message "Should we continue?"
+                ok "yes, we should."
+            }
             steps {
-                sh 'echo This is Deploy Stage'
+                sh """
+                cd 01-vpc
+                terraform apply -auto-approve
+                """
             }
         }
     }
