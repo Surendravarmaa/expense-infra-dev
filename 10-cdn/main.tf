@@ -88,7 +88,7 @@ module "records" {
 
   records = [
     {
-      name    = "web-cdn" #web-cdn.surendra.online
+      name    = "web-cdn.${var.zone_name}" #web-cdn.surendra.online
       type    = "A"
       allow_overwrite = true
       alias = {
