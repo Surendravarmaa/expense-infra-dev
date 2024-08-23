@@ -46,7 +46,7 @@ resource "aws_cloudfront_distribution" "web_cdn" {
   ordered_cache_behavior {
     path_pattern     = "/static/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD"]
+    cached_methods   = ["GET", "HEAD", "OPTIONS"]
     target_origin_id = "web-${var.environment}.${var.zone_name}"
 
     min_ttl                = 0
