@@ -58,7 +58,7 @@ module "records" {
 
   records = [
     {
-      name    = "*.web-${var.environment}"
+      name    = "web-${var.environment}"
       type    = "A"
       allow_overwrite = true
       alias = {
